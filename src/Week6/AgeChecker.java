@@ -9,7 +9,11 @@ public class AgeChecker {
         System.out.print("Enter your age (Seperate it by spaces): ");
         String input = scanner.nextLine();
         String[] ages = input.split(" ");
-
+        if (input.length() > 1000 || input.length() < 1) {
+            System.out.println("You can only enter between 1 and 1000 elements.");
+            scanner.close();
+            return;
+        }
         Queue<String> AllowedQueue = new PriorityQueue<>();
         Queue<String> NotAllowedQueue = new PriorityQueue<>();
         for (String age : ages) {
